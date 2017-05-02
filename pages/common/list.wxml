@@ -1,0 +1,58 @@
+<!--列表list组件 -->
+<template name="list">
+<scroll-view class="scroll-posts-list"  scroll-y="true" style="height:100%"  bindscrolltolower="lower">
+  <view class="postslist">
+    <block wx:for="{{postsList}}"  wx:key="">
+      <view class="posts-list" data-id="{{item.id}}" style="background-color:{{item.color}};border-radius: 10px;border:2px #636363 solid;margin-bottom:5px">
+        <navigator url="../detial/detial?worknum={{item.worknum}}">
+          <view class="posts-list-info" index="{{index}}">
+              <view class="item-box">
+                <view class="userinfo">
+                  <text class="username">{{item.address}}</text>
+                  <text class="time">{{item.date}}</text>
+                </view>
+                <view class="posts-title">
+                  <view class="posts-tag hot" wx:if="{{item.imageURL !=0}}">有图</view>
+                  <!--<view class="posts-tag" wx:if="{{item.recordURL !=0}}">有声</view>-->
+                  <text>{{item.remark}}</text>
+                </view>
+                <view class="userinfo">
+                  <text class="username">{{item.from}}</text>
+                  <text class="time" wx:if="{{list_type==1}}">{{item.creat_user}}</text>
+                  <text class="time" wx:if="{{list_type==2}}">{{item.work_user}}</text>
+                </view>
+              </view>
+          </view>
+        </navigator>
+          <view class="bar-info">
+            <view class="bar-info-item" data-id="{{item.id}}" data-level="{{item.attention_level}}" bindtap="edit_level">
+              <image class="bar-info-item-icon" src="/images/icon/heart.png"></image>
+            </view>
+            <view class="bar-info-item" data-id="{{item.id}}" data-remark="{{item.remark}}"  bindtap="modal_remark_open">
+              <image class="bar-info-item-icon" src="/images/icon/edit.png"></image>
+            </view>
+            <view  wx:if="{{list_type==1}}" class="bar-info-item" data-id="{{item.id}}" data-ok="{{item.ok_state}}" bindtap="edit_ok">
+              <image class="bar-info-item-icon" src="/images/icon/ok.png"></image>
+            </view>
+            
+            
+            <view class="bar-info-item2" data-fromname="{{item.from_name}}" data-fromtel="{{item.from_tel}}" data-client="{{item.cilent_name}}" data-clienttel="{{item.client_tel}}"  bindtap="modal_call_open">
+              <image class="bar-info-item-icon" src="/images/icon/call.png"></image>
+            </view>
+            <view  wx:if="{{list_type==1}}" class="bar-info-item2" data-id="{{item.id}}"  bindtap="edit_del">
+              <image class="bar-info-item-icon" src="/images/icon/del.png"></image>
+            </view>
+            <view  wx:if="{{list_type==1}}" class="bar-info-item2" data-id="{{item.id}}"  data-workuser="{{item.work_user}}" bindtap="modal_edit_workuser_open">
+              <image class="bar-info-item-icon" src="/images/icon/zhuan.png"></image>
+            </view>
+          </view>
+      
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<loading class="loading" hidden="{{hidden}}">
+  <text class="loading-font">加载中...</text>
+</loading>
+</template>

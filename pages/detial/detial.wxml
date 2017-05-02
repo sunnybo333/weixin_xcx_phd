@@ -1,0 +1,49 @@
+<import src="../common/model.wxml"/>
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__bd">
+        <view class="weui-panel">
+            <view class="weui-panel__hd" style="font-size:17px;color:#000000">位置：{{detial.address}}</view>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text"><text>来源：{{detial.from}}</text></view>
+                <view class="weui-media-box__title weui-media-box__title_in-text" style="display:flex;justify-content: space-between;flex-flow: row;font-size:17px"><text>信贷：{{detial.from_name}}</text><text bindtap="call_phone" data-tel="{{detial.from_tel}}" style="color:#0000ff">电话：{{detial.from_tel}}</text></view>
+                <view class="weui-media-box__title weui-media-box__title_in-text" style="display:flex;justify-content: space-between;flex-flow: row;font-size:17px"><text>客户：{{detial.cilent_name}}</text><text bindtap="call_phone" data-tel="{{detial.client_tel}}" style="color:#0000ff">电话：{{detial.client_tel}}</text></view>
+                    <view class="weui-media-box__title weui-media-box__title_in-text">备注：{{detial.remark}}</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">{{detial.creat_user}}</view>
+                        <view class="weui-media-box__info__meta">{{detial.date}}</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{detial.work_user}}</view>
+                        <view class="weui-media-box__info__meta">{{detial.attention_level}}</view>
+                        <view class="weui-media-box__info__meta">{{detial.ok_state}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        
+        <view class="uploadbox">
+            <view class="uploadimg">
+                <view class="weui-cells__title">图片</view>
+                <view bindtap="lookimg"  data-url="{{detial.imageURL}}" class="weui-uploader__input-box">
+                    <view class="weui-uploader__input">  
+                    </view>
+                    <image style="width: 100%; height: 100%; background-color: #eeeeee;" mode="aspectFit" src="{{detial.imageURL}}"></image>
+                </view>
+            </view>
+            <!--<view class="uploadvo">
+                <view class="weui-cells__title">语音</view>
+                <view bindtap="playvoice" data-url="{{detial.recordURL}}" class="weui-uploader__input-box">
+                    <view class="weui-uploader__input"></view>
+                    <image style="width: 100%; height: 100%; background-color: #eeeeee;" mode="aspectFit" src="/images/icon/record.jpg" ></image>
+                </view>
+            </view>-->
+        </view>
+    </view>
+</view>
+<loading class="loading" hidden="{{hidden}}">
+  <text class="loading-font">加载中...</text>
+</loading>
+<view class="img_b1" hidden="{{img_modalFlag}}" bindtap="hidden_img">  
+   <view class="img_b2">
+        <image style="width:{{ scaleWidth }}; height:{{ scaleHeight }}" scr="{{detial.imageURL}}" mode="aspectFit" src="{{detial.imageURL}}"></image>
+   </view>  
+</view>  

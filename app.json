@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/login/login",
+    "pages/add/add",
+    "pages/topics/topics",
+    "pages/myassign/myassign",
+    "pages/detial/detial",
+    
+    
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "backgroundColor":"#fff",
+    "navigationBarBackgroundColor": "#444",
+    "navigationBarTitleText": "派活单",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":"true"
+  },
+  "tabBar":{
+    "color":"#444",
+    "selectedColor":"#80bd01",
+    "backgroundColor":"#fff",
+    "borderStyle":"white",
+    "list":[{
+      "pagePath":"pages/topics/topics",
+      "text":"我看",
+      "iconPath":"images/bar/1HL.png",
+      "selectedIconPath":"images/bar/1.png"
+    },{
+      "pagePath":"pages/myassign/myassign",
+      "text":"已派",
+      "iconPath":"images/bar/2HL.png",
+      "selectedIconPath":"images/bar/2.png"
+    },{
+      "pagePath":"pages/add/add",
+      "text":"新增",
+      "iconPath":"images/bar/3HL.png",
+      "selectedIconPath":"images/bar/3.png"
+    }
+    ]
+  }
+}

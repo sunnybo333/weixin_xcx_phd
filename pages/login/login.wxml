@@ -1,0 +1,29 @@
+<view class="container" wx:if="{{registed==1}}">
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{username}}</text>
+  </view>
+  <view class="page-body">
+    <view class="btn-area" id="buttonContainer">
+      <view class="button-sp-area">
+        <button type="primary" plain="true" bindtap="goto_topics">我看</button>
+        <button type="warn" plain="true" bindtap="goto_myassign">已派</button>
+        <button type="default" plain="true" bindtap="goto_add">新增</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="container" wx:if="{{registed==0}}">
+  <view class="page-body">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input bindinput="input_name" class="weui-input" maxlength="10" placeholder="首次登陆请输入姓名" />
+      </view>
+    </view>
+    <view class="btn-area" id="buttonContainer">
+      <view class="button-sp-area">
+        <button type="default" plain="true" bindtap="regist">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<!--导航nav组件 -->
+<template name="nav">
+    <view class="top-bar">
+      <block wx:for="{{navList}}" wx:key="" wx:for-index="idx">
+        <view id="{{item.id}}" data-index="{{idx}}" class="top-bar-item {{idx == activeIndex ? 'top-bar-active' : ''}}" bindtap="onTapTag">{{item.title}}</view>
+      </block>
+    </view>
+</template>

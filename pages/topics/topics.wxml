@@ -1,0 +1,11 @@
+<!-- topics.wxml  -->
+<import src="../common/list.wxml"/>
+<import src="../common/nav.wxml"/>
+<import src="../common/model.wxml"/>
+<template is="nav" data="{{navList,activeIndex}}"/>
+<view class="page topics">
+  <template is="list" data="{{ postsList, hidden,pageBackgroundColor,list_type}}"/>
+  <template is="model_edit_workuser" data="{{modalFlag,index,array}}"/>
+  <template is="model_call" data="{{ call_modalFlag,call_info}}"/>
+  <template is="model_edit_remark" data="{{old_remake,remark_modalFlag}}"/>
+</view>

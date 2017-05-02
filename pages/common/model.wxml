@@ -1,0 +1,58 @@
+<template name="model_edit_workuser">
+<!-- 修改执行人模态框开始  -->
+<view class="b1" hidden="{{modalFlag}}">  
+        <view class="b2">
+            <picker bindchange="pickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker">
+                当前选择：{{array[index]}}
+              </view>
+            </picker>
+        <button class="model-bt1" type="primary" bindtap="edit_workuser_submit"> 修改 </button> 
+        <button class="model-bt2" type="warn"  bindtap="modal_edit_workuser_cancel"> 取消 </button> 
+     </view>   
+</view>  
+<!-- 修改执行人模态框结束  -->
+</template>
+<template name="model_call">
+<!-- 打电话模态框开始  -->
+<view class="b1" hidden="{{call_modalFlag}}">  
+     <view class="b2">  
+        <button type="primary" style="margin:5px" data-tel="{{call_info[1]}}" bindtap="call_phone"> 来源{{call_info[0]}}：{{call_info[1]}} </button>
+        <button type="primary" style="margin:5px" data-tel="{{call_info[3]}}" bindtap="call_phone"> 客户{{call_info[2]}}：{{call_info[3]}}  </button> 
+        <button type="warn"  style="margin:5px" bindtap="modal_call_cancel"> 取消 </button> 
+     </view>   
+</view>  
+<!-- 打电话模态框结束  -->
+</template>
+<template name="model_edit_remark">
+<!-- 修改备注模态框开始  -->
+<view class="b1" hidden="{{remark_modalFlag}}">  
+   <view class="b2">  
+        <textarea class="model-textarea" value="{{old_remake}}" bindinput="reamrk_change"/>
+        <button class="model-bt1" type="primary" bindtap="edit_remark_submit"> 修改 </button> 
+        <button class="model-bt2" type="warn"  bindtap="modal_edit_remark_cancel"> 取消 </button> 
+
+   </view>  
+</view>  
+<!-- 修改备注模态框结束  -->
+</template>
+
+<template name="model_img">
+<!-- 查看图片模态框开始  -->
+<view class="img_bi" hidden="{{img_modalFlag}}">  
+   <scroll-view class="img_b2" scroll-x="true" scroll-y="true">
+        <image class="image" mode="aspectFit" style="width:{{ scaleWidth }}px; height:{{ scaleHeight }}px" scr="{{detial.imageURL}}"/>
+   </scroll-view>  
+</view>  
+<!-- 查看图片模态框结束  -->
+</template>
+<template name="model_message">
+<!-- 文字提示模态框开始  -->
+<view class="b1" hidden="{{message_modalFlag}}">  
+    <view class="model-message-bt1"> 
+        <view class="message-text">{{message}}</view>
+        <button class="model-message-bt2" type="primary" bindtap="hide_message_modal"> 确定 </button> 
+    </view>   
+</view>  
+<!-- 文字提示模态框结束  -->
+</template>

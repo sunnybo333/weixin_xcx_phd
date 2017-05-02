@@ -1,0 +1,103 @@
+<import src="../common/model.wxml"/>
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">地址</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="address" value="{{address}}" placeholder="请输入小区"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">银行</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input"  name="from" value="{{from}}" placeholder="银行及支行"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">信贷员</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="from_name" value="{{from_name}}" placeholder="信贷员姓名"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">手机号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="from_tel" value="{{from_tel}}" placeholder="请输入手机号" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">客户</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="cilent_name" value="{{cilent_name}}" placeholder="客户姓名"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">手机号</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" name="client_tel" value="{{client_tel}}"  placeholder="请输入手机号" />
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_switch">
+                <view class="weui-cell__bd">是否加急</view>
+                <view class="weui-cell__ft">
+                    <switch  bindchange="switchChange"/>
+                    <input style="display:none" name="attention_level" value="{{attention_level}}"/>
+                    <input style="display:none" name="color" value="{{color}}"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_select">
+                <view class="weui-cell__bd">
+                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <view class="weui-select">接单人：{{array[index]}}</view>
+                    </picker>
+                    <input style="display:none" name="work_user" value="{{work_user}}"/>
+                </view>
+            </view>
+        </view>
+        
+        <view class="weui-cells__title">备注</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" name="remark" value="{{remark}}" placeholder="请输入文本" style="height: 3.3em" />
+                    <view class="weui-textarea-counter">0/200</view>
+                </view>
+            </view>
+        </view>
+        <view class="uploadbox">
+            <view class="uploadimg">
+                <view class="weui-cells__title">添加图片</view>
+                <view bindtap="chooseimg" class="weui-uploader__input-box">
+                    <view class="weui-uploader__input">  
+                    </view>
+                    <image style="width: 100%; height: 100%; background-color: #eeeeee;" mode="aspectFit" src="{{uploadimg_path}}"></image>
+                </view>
+            </view>
+            <!--<view class="uploadvo">
+                <view class="weui-cells__title">添加语音</view>
+                <view bindtouchstart="startrecord" bindtouchend="touch_leave" class="weui-uploader__input-box">
+                    <view class="weui-uploader__input"></view>
+                    <image style="width: 100%; height: 100%; background-color: #eeeeee;" mode="aspectFit" src="/images/icon/record.jpg"></image>
+                </view>
+            </view>-->
+        </view>
+        <view class="weui-btn-area">
+            <button formType="submit" class="weui-btn" type="primary">确定</button>
+        </view>
+    </view>
+    </form>
+</view>
